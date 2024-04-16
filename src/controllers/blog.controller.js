@@ -1,8 +1,14 @@
+const PostModel = require('../models/post.model')
+
 const create = async (req, res) => {
   try {
     const { title, body, tags } = req.body;
 
-    // TODO: store post
+    const post = await PostModel.create({
+      title,
+      body,
+      tags: tags.join(',')
+    })
 
     res.status(302).json({ message: "Post created", data: post });
   } catch (error) {
@@ -16,7 +22,7 @@ const list = async (req, res) => {
     let page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 20;
 
-    // TODO: get posts
+    const posts = await PostModel.findAll({ offset: (page - 1) * limit, limit });
 
     res.status(200).json({ posts, page });
   } catch (error) {
@@ -27,9 +33,9 @@ const list = async (req, res) => {
 
 const show = async (req, res) => {
   try {
-    const blogId = req.params.id;
+    const id = req.params.id;
 
-    // TODO: fetch post bt id
+    const post = await PostModel.findByPk(id);
 
     if (!post) {
       return res.status(404).json({ message: "Post not found" });
@@ -44,15 +50,20 @@ const show = async (req, res) => {
 
 const update = async (req, res) => {
   try {
-    const postId = req.params.id;
+    const id = req.params.id;
 
-    // TODO: get post by id
+    let post = await PostModel.findByPk(id);
 
     if (!post) {
       return res.status(404).json({ message: "Post not found" });
     }
 
-    // TODO: update post
+    const { title, body, tags } = req.body;
+
+    post = await PostModel.update(
+      { title, body, tags: tags.join(',')},
+      { where: { id } }
+    );
 
     res.status(200).json({ message: "Post updated", data: post });
   } catch (error) {
@@ -63,15 +74,17 @@ const update = async (req, res) => {
 
 const deletePost = async (req, res) => {
   try {
-    const postId = req.params.id;
+    const id = req.params.id;
 
-    // TODO: get post by id
+    const post = await PostModel.findByPk(id);
 
     if (!post) {
       return res.status(404).json({ message: "Post not found" });
     }
 
-    // TODO: remove post
+    await PostModel.destroy({
+      where: { id },
+    });
 
     res.status(302).json({ message: "Post removed" });
   } catch (error) {

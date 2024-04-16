@@ -28,12 +28,12 @@ app.use((err, req, res, next) => {
   console.log(
     `${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`,
   );
-  res.status(err.status || 500).send(err.message || "Internal Server Error");
+  res.status(err.status || 500).send(err.message || '[SERVER] Internal Server Error');
 });
 
 // Start the server
 app.listen(PORT, () => {
-  console.info(`Server is running on port ${PORT}`);
+  console.info(`[SERVER] Server is running on port ${PORT}`);
 });
 
 module.exports = app;

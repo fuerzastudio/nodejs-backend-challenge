@@ -1,10 +1,10 @@
 const express = require("express");
-const controller = require("../../controllers/blogController");
+const controller = require("../../controllers/blog.controller");
 const auth = require("../../middlewares/auth");
 
 const blogRouter = express.Router();
 
-blogRouter.use(auth.authenticateUser);
+// blogRouter.use(auth.authenticateUser);
 
 blogRouter.post("/", controller.create);
 blogRouter.get("/", controller.list);
