@@ -7,7 +7,8 @@
     "serve": "node src/app.js",
     "prettier": "npx prettier . --write",
     "test": "jest --forceExit",
-    "swagger": "node ./src/swagger.js"
+    "swagger": "node ./docs/swagger.js",
+    "jwt:secret": "node -e \"console.info(require('crypto').randomBytes(256).toString('base64'));\""
   },
   "keywords": [],
   "author": "",

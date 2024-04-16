@@ -4,12 +4,10 @@ const auth = require("../../middlewares/auth");
 
 const blogRouter = express.Router();
 
-// blogRouter.use(auth.authenticateUser);
-
-blogRouter.post("/", controller.create);
 blogRouter.get("/", controller.list);
 blogRouter.get("/:id", controller.show);
-blogRouter.put("/:id", controller.update);
-blogRouter.delete("/:id", controller.deletePost);
+blogRouter.post("/", auth.authenticateUser, controller.create);
+blogRouter.put("/:id", auth.authenticateUser, controller.update);
+blogRouter.delete("/:id", auth.authenticateUser, controller.deletePost);
 
 module.exports = blogRouter;

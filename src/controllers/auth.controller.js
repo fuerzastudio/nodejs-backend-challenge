@@ -18,7 +18,7 @@ const login = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    const token = await jwt.sign({ user: user }, "secret", {
+    const token = await jwt.sign({ user: user }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
 

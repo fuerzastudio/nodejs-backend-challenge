@@ -28,7 +28,10 @@ User.sync({ alter: true }).then(() => {
   User.create({
     name: "Admin",
     email: "admin@admin.com",
-    password: bcrypt.hashSync("admin", 10),
+    password: bcrypt.hashSync(
+      "admin",
+      parseInt(process.env.BCRYPT_ROUNDS) || 10,
+    ),
   });
 });
 

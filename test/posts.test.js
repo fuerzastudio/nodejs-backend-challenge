@@ -68,8 +68,7 @@ describe("Posts", () => {
         tags: ["tag"],
       });
 
-    const deleted = await request(app)
-      .delete(`/blogs/${res.body.data.id}`)
+    const deleted = await request(app).delete(`/blogs/${res.body.data.id}`);
 
     expect(deleted.statusCode).toEqual(200);
   });

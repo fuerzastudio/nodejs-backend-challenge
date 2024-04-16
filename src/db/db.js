@@ -1,7 +1,16 @@
 const { Sequelize } = require("sequelize");
 
-// const sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname')
-const sequelize = new Sequelize("sqlite::memory:");
+const types = [
+  { type: "sqlite", string: "sqlite::memory:" },
+  { type: "postgres", string: "postgres://user:pass@example.com:5432/dbname" },
+];
+
+const sequelize = new Sequelize(
+  types.find((item) => item.type == process.env.DB_TYPE).string,
+  {
+    logging: process.env.DB_LOGS ? console.log : false,
+  },
+);
 
 // try {
 //   sequelize.authenticate();
