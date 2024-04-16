@@ -28,7 +28,9 @@ app.use((err, req, res, next) => {
   console.log(
     `${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`,
   );
-  res.status(err.status || 500).send(err.message || '[SERVER] Internal Server Error');
+  res
+    .status(err.status || 500)
+    .send(err.message || "[SERVER] Internal Server Error");
 });
 
 // Start the server

@@ -1,4 +1,4 @@
-const PostModel = require('../models/post.model')
+const PostModel = require("../models/post.model");
 
 const create = async (req, res) => {
   try {
@@ -7,10 +7,10 @@ const create = async (req, res) => {
     const post = await PostModel.create({
       title,
       body,
-      tags: tags.join(',')
-    })
+      tags: tags.join(","),
+    });
 
-    res.status(302).json({ message: "Post created", data: post });
+    res.status(200).json({ message: "Post created", data: post });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Error creating post" });
@@ -22,7 +22,10 @@ const list = async (req, res) => {
     let page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 20;
 
-    const posts = await PostModel.findAll({ offset: (page - 1) * limit, limit });
+    const posts = await PostModel.findAll({
+      offset: (page - 1) * limit,
+      limit,
+    });
 
     res.status(200).json({ posts, page });
   } catch (error) {
@@ -60,10 +63,12 @@ const update = async (req, res) => {
 
     const { title, body, tags } = req.body;
 
-    post = await PostModel.update(
-      { title, body, tags: tags.join(',')},
-      { where: { id } }
+    await PostModel.update(
+      { title, body, tags: tags.join(",") },
+      { where: { id } },
     );
+
+    post = await PostModel.findByPk(id);
 
     res.status(200).json({ message: "Post updated", data: post });
   } catch (error) {
@@ -86,7 +91,7 @@ const deletePost = async (req, res) => {
       where: { id },
     });
 
-    res.status(302).json({ message: "Post removed" });
+    res.status(200).json({ message: "Post removed" });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error removing post" });
