@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "node src/app.js",
     "prettier": "npx prettier . --write",
-    "test": "jest --forceExit",
+    "test": "NODE_ENV=test jest --forceExit --runInBand",
     "swagger": "node ./docs/swagger.js",
     "jwt:secret": "node -e \"console.info(require('crypto').randomBytes(256).toString('base64'));\""
   },
