@@ -6,7 +6,8 @@
   "scripts": {
     "serve": "node src/app.js",
     "prettier": "npx prettier . --write",
-    "test": "jest --forceExit"
+    "test": "jest --forceExit",
+    "swagger": "node ./src/swagger.js"
   },
   "keywords": [],
   "author": "",
@@ -17,12 +18,14 @@
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "sequelize": "^6.37.3",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "swagger-ui-express": "^5.0.0"
   },
   "devDependencies": {
     "jest": "^29.7.0",
     "prettier": "3.2.5",
-    "supertest": "^6.3.4"
+    "supertest": "^6.3.4",
+    "swagger-autogen": "^2.23.7"
   },
   "jest": {
     "testEnvironment": "node",
