@@ -4,7 +4,7 @@
   "description": "The project is a simple challenge to test your skills in building APIs using the Node.js framework.",
   "main": "index.js",
   "scripts": {
-    "dev": "node-dev src/app.js",
+    "dev": "NODE_ENV=development node-dev src/app.js",
     "serve": "node src/app.js",
     "prettier": "npx prettier . --write",
     "test": "NODE_ENV=test jest --forceExit --runInBand",
