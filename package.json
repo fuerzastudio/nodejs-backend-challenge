@@ -4,6 +4,7 @@
   "description": "The project is a simple challenge to test your skills in building APIs using the Node.js framework.",
   "main": "index.js",
   "scripts": {
+    "dev": "node-dev src/app.js",
     "serve": "node src/app.js",
     "prettier": "npx prettier . --write",
     "test": "NODE_ENV=test jest --forceExit --runInBand",
@@ -19,6 +20,7 @@
     "express": "^4.19.2",
     "express-validator": "^7.0.1",
     "jsonwebtoken": "^9.0.2",
+    "node-dev": "^8.0.0",
     "sequelize": "^6.37.3",
     "sqlite3": "^5.1.7",
     "swagger-ui-express": "^5.0.0"

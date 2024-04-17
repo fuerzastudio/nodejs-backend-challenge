@@ -3,7 +3,7 @@ const jwtService = require("jsonwebtoken");
 const authenticateUser = async (req, res, next) => {
   const jwt = req.headers["authorization"];
 
-  if (process.env.NODE_ENV == 'test') {
+  if (process.env.NODE_ENV == "test") {
     next();
     return;
   }
