@@ -1487,6 +1487,14 @@
     "jest-message-util" "^29.7.0"
     "jest-util" "^29.7.0"
 
+"express-validator@^7.0.1":
+  "integrity" "sha512-oB+z9QOzQIE8FnlINqyIFA8eIckahC6qc8KtqLdLJcU3/phVyuhXH3bA4qzcrhme+1RYaCSwrq+TlZ/kAKIARA=="
+  "resolved" "https://registry.npmjs.org/express-validator/-/express-validator-7.0.1.tgz"
+  "version" "7.0.1"
+  dependencies:
+    "lodash" "^4.17.21"
+    "validator" "^13.9.0"
+
 "express@^4.19.2", "express@>=4.0.0 || >=5.0.0-beta":
   "integrity" "sha512-5T6nhjsT+EOMzuck8JjBHARTHfMht0POzlA60WV2pMD3gyXw2LZnZ+ueGdNxG+0calOJcWKbpFcuzLZ91YWq9Q=="
   "resolved" "https://registry.npmjs.org/express/-/express-4.19.2.tgz"

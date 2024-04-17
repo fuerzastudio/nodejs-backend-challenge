@@ -1,6 +1,13 @@
+const { validationResult } = require('express-validator')
+
 const PostModel = require("../models/post.model");
 
 const create = async (req, res) => {
+  const errors = validationResult(req)
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ message: "Error creating post", errors: errors.array() })
+  }
+
   try {
     const { title, body, tags } = req.body;
 
