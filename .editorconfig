@@ -1,0 +1,23 @@
+# Top-most EditorConfig file
+root = true
+
+# Set the default charset
+[*]
+charset = utf-8
+
+# Indentation settings
+[*.js]
+indent_style = space
+indent_size = 2
+
+# Trim trailing whitespace
+[*.{js,json,md}]
+trim_trailing_whitespace = true
+
+# Ensure a newline at the end of each file
+[*.{js,json,md}]
+insert_final_newline = true
+
+# Set the line endings to LF (Unix-style)
+[*.{js,json,md}]
+end_of_line = lf
