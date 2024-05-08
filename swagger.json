@@ -1,0 +1,245 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "NodeJs Backend Challenge",
+    "description": "API documentation for managing posts.",
+    "version": "1.0.0"
+  },
+  "basePath": "/",
+  "components": {},
+  "security": [],
+  "paths": {
+    "/": {
+      "get": {
+        "description": "Application status",
+        "sumary": "Application status",
+        "tags": ["Default"],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/posts": {
+      "get": {
+        "description": "Get all posts",
+        "summary": "Get all posts",
+        "tags": ["Posts"],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of records per page",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": [
+                    {
+                      "id": "string",
+                      "title": "string",
+                      "body": "string",
+                      "tags": ["string"],
+                      "createdAt": "datetime",
+                      "updatedAt": "datetime"
+                    }
+                  ],
+                  "page": "1",
+                  "limit": "10"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Create a new post",
+        "summary": "Create a new post",
+        "tags": ["Posts"],
+        "requestBody": {
+          "description": "New post data",
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "title": "string",
+                "body": "string",
+                "tags": ["string"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Post created successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": {
+                    "id": "string",
+                    "title": "string",
+                    "body": "string",
+                    "tags": ["string"],
+                    "createdAt": "datetime",
+                    "updatedAt": "datetime"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid data"
+          }
+        }
+      }
+    },
+    "/api/posts/{id}": {
+      "get": {
+        "description": "Get post by ID",
+        "summary": "Get post by ID",
+        "tags": ["Posts"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the post",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": {
+                    "id": "string",
+                    "title": "string",
+                    "body": "string",
+                    "tags": ["string"],
+                    "createdAt": "datetime",
+                    "updatedAt": "datetime"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Post not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": false,
+                  "data": "Post not found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Update an existing post by ID",
+        "summary": "Update an existing post by ID",
+        "tags": ["Posts"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the post to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Updated post data",
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "title": "string",
+                "body": "string",
+                "tags": ["string"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Post updated successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": {
+                    "id": "string",
+                    "title": "string",
+                    "body": "string",
+                    "tags": ["string"],
+                    "createdAt": "datetime",
+                    "updatedAt": "datetime"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid data"
+          },
+          "404": {
+            "description": "Post not found"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete an existing post by ID",
+        "summary": "Delete an existing post by ID",
+        "tags": ["Posts"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the post to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Post deleted successfully"
+          },
+          "404": {
+            "description": "Post not found"
+          }
+        }
+      }
+    }
+  }
+}
