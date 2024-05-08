@@ -1,0 +1,32 @@
+version: '3'
+services:
+  postgres_challenge:
+    container_name: postgres_challenge
+    image: postgres:11.5-alpine
+    volumes:
+      - ./data/database_11:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgress
+      POSTGRES_PASSWORD: postgress
+      POSTGRES_DB: challenge
+    ports:
+      - "5432:5432"
+    networks:
+      - network
+
+  nodejs-backend-challenge:
+    container_name: nodejs-backend-challenge
+    stdin_open: true
+    build: ./
+    volumes:
+      - './:/app'
+    ports:
+      - '3000:3000'
+    depends_on:
+      - postgres_challenge
+    networks:
+      - network
+
+networks:
+  network:
+    driver: bridge
