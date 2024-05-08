@@ -3,3 +3,4 @@ node_modules
 logs
 tmp
 dist
+prisma/migrations/migration_lock.toml
