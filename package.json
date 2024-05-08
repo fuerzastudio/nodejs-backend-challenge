@@ -1,0 +1,38 @@
+{
+  "name": "nodejs-backend-challenge",
+  "version": "1.0.0",
+  "description": "The project is a simple challenge to test your skills in building APIs using the Node.js framework.",
+  "main": "index.js",
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.11",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.5"
+  },
+  "scripts": {
+    "start": "ts-node-dev --respawn --transpile-only --exit-child src/app.ts",
+    "build": "tsc",
+    "serve": "node dist/index.js",
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Danilontn53/nodejs-backend-challenge.git"
+  },
+  "keywords": [
+    "api",
+    "posts"
+  ],
+  "author": "Danilo Santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Danilontn53/nodejs-backend-challenge/issues"
+  },
+  "homepage": "https://github.com/Danilontn53/nodejs-backend-challenge#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
