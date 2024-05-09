@@ -1,12 +1,15 @@
 import express from "express";
+import passport from "passport";
 import swaggerUI from "swagger-ui-express";
 import swaggerDocument from "../swagger.json";
 import "./config";
+import "./passaport/passport-jwt-config";
 import routes from "./routes/api";
 
 const app = express();
 
 app.use(express.json());
+app.use(passport.initialize());
 
 app.get("/", (req, res) => {
   res.send({ success: true, data: "Status up!" });
