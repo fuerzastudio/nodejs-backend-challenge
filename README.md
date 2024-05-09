@@ -1,92 +1,57 @@
-# Backend Challenge
+# API de Gerenciamento de Postagens
 
-The project is a simple challenge to test your skills in building APIs using the Node.js framework.
+Este projeto consiste em uma API simples para gerenciar postagens, seguindo as diretrizes estabelecidas no desafio de back-end.
 
-### Submission
+## Desenvolvimento
 
-- [ ] Read the description, requirements, and the others instructions
-- [ ] Fork the repository at [https://github.com/fuerzastudio/backend-challenge](https://github.com/fuerzastudio/backend-challenge)
-- [ ] Submit your challenge as a pull request
+O projeto foi desenvolvido em Node.js com TypeScript utilizando o framework Express para criação das rotas da API. A persistência de dados foi implementada utilizando um banco de dados PostgreSQL, e a API foi containerizada usando Docker para facilitar o ambiente de desenvolvimento. Tanto a api quanto ao banco de dados foram configurados com uso de docker.
 
-### What to do
+## Requisitos para Execução
 
-- Create a simple API to manage the system of posts (CRUD).
+Para executar o projeto localmente, é necessário ter o Docker instalado na máquina. O Docker Compose é utilizado para gerenciar os containers e a configuração do banco de dados.
 
-**This API should allow to:**
+## Instruções de Uso
 
-| Method | Name | Route |
-| ------ | ------ | ------ |
-| POST | Create Post | /api/posts |
-| GET | Listing Posts | /api/posts |
-| GET | Get Post By ID | /api/posts/:id |
-| PUT | Edit Post | /api/posts/:id |
-| DELETE | Delete Post | /api/posts/:id |
+1. Clone o repositório:
 
-**The post must have the following fields:**
-
-| Field | Type |
-| ------ | ------ |
-| id | UUID |
-| title | string |
-| body | string |
-| tags | string[] |
-
-### Requirements
-
-- [ ] All API responses must be in JSON format.
-- [ ] Add pagination on the API for the listing of the posts
-- [ ] Provide the unit testing for all routes using Mocha and Chai or your preferred testing framework.
-- [ ] Provide documentation for all routes, we preferer using Swagger API, but you can using README for documentation.
-- [ ] Provide a README file with usage instructions (how to the runs, considerations, etc...).
-- [ ] Use naming written as camelCase by convention.
-
-#### - **The folders structures of the project should be following the example below.**
-
-```sh
-├── src
-│   ├── controllers
-│   │   └── posts
-│   ├── helpers
-│   │   └── utils.js
-│   ├── models
-│   │   └── post.js
-│   ├── routes
-│   │   └── api
-│   │       ├── posts.js
-│   │       └── index.js
-│   └── app.js
-├── test
-│   └── posts
-├── .editorconfig
-├── .gitignore
-├── package.json
-└── readme.md
+```bash
+git clone https://github.com/Danilontn53/nodejs-backend-challenge.git
+cd nodejs-backend-challenge
 ```
 
-#### Any routes should process the response in the controllers, no use function directly in the routes.
+2. Crie um arquivo `.env` na raiz do projeto e copie os dados do arquivo `.env-example` para configurar as variáveis de ambiente necessárias, como a conexão com o banco de dados.
 
-- See example below
+3. Execute o comando Docker Compose para iniciar o projeto:
 
-![basic structure](https://i.imgur.com/lyRSYj8.png)
+```bash
+docker-compose up
+```
 
-### Data Persistence
+Isso iniciará a API e o banco de dados PostgreSQL.
 
-- [ ] You will need to persist the data in some way, maybe in memory.
-- [ ] You don't need to use any external data persistence (database, cache, etc.), and the easier it is for us to run it, is better.
+4. Acesse a documentação da API Swagger em:
 
-### Evaluation
+```
+http://localhost:3000/docs
+```
 
-- [ ] Architecture
-- [ ] Automated tests
-- [ ] Functionalities of the APIs
-- [ ] Programming good practices
-- [ ] Project organization
-- [ ] Structure componentization
-- [ ] Clean code with camelcase pattern
+Aqui você encontrará informações detalhadas sobre as rotas disponíveis, parâmetros de requisição e exemplos de resposta.
 
-### Bonus Level Up
+### Credenciais para gerar a token JWT:
 
-- [ ] Authenticated the routes using JWT
-- [ ] Process and validate the data that the API receives before creating the post.
-- [ ] Using Postgres for storage data
-- [ ] Using Swagger API documentation
+**email**: admin@mail.com
+
+**password**: 123456789
+
+## Próximos Passos
+
+Visto do tempo de implementação, e que também estou trabalhando e estudando simultaneamente, não tive tempo hábil para incluir no projeto testes automatizados. Não utilizando de desculpas mas esses serão os próximos passos a serem implementados para melhorar a robustez com a biblioteca Jest para testes. Caso me dêem a oportunidade basta atualizarem o repositório do projeto em alguns dias.
+
+---
+
+No mais agradeço pela oportunidade de estar participando desta seleção. Muito obrigado.
+
+Att,
+
+Danilo Santos
+danilontn53@gmail.com
