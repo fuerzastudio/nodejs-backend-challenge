@@ -23,7 +23,7 @@ passport.use(
 
         const isMatch = await bcrypt.compare(password, login.password);
 
-        if (isMatch)
+        if (!isMatch)
           return done(null, false, { message: "E-mail ou senha incorretos." });
 
         return done(null, login);

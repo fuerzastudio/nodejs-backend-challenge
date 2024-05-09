@@ -6,8 +6,20 @@
     "version": "1.0.0"
   },
   "basePath": "/",
-  "components": {},
-  "security": [],
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "BearerAuth": []
+    }
+  ],
   "paths": {
     "/": {
       "get": {
@@ -17,6 +29,46 @@
         "responses": {
           "200": {
             "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "description": "Authenticate user and generate JWT token. Credentials: email - admin@mail.com password - 123456789",
+        "summary": "User login",
+        "tags": ["Authentication"],
+        "requestBody": {
+          "description": "User credentials",
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "email": "string",
+                "password": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login successful",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": {
+                    "token": "string"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }

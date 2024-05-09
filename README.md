@@ -37,9 +37,15 @@ http://localhost:3000/docs
 
 Aqui você encontrará informações detalhadas sobre as rotas disponíveis, parâmetros de requisição e exemplos de resposta.
 
+### Credenciais para gerar a token JWT:
+
+**email**: admin@mail.com
+
+**password**: 123456789
+
 ## Próximos Passos
 
-Visto do tempo de implementação, e que também estou trabalhando e estudando simultaneamente, não tive tempo hábil para incluir no projeto testes automatizados e autenticação JWT. Não utilizando de desculpas mas esses serão os próximos passos a serem implementados para melhorar a robustez com a biblioteca Jest para testes e o Passaport segurança da API. Caso me dêem a oportunidade basta atualizarem o repositório do projeto em alguns dias.
+Visto do tempo de implementação, e que também estou trabalhando e estudando simultaneamente, não tive tempo hábil para incluir no projeto testes automatizados. Não utilizando de desculpas mas esses serão os próximos passos a serem implementados para melhorar a robustez com a biblioteca Jest para testes. Caso me dêem a oportunidade basta atualizarem o repositório do projeto em alguns dias.
 
 ---
 

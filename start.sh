@@ -1,1 +1,1 @@
-npm install && npx prisma migrate deploy && npx prisma generate && npm start
+npm install && npx prisma migrate deploy && npx prisma generate && npx prisma db seed && npm start
