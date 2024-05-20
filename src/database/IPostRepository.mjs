@@ -1,0 +1,3 @@
+class IPostRepository {
+  create(data) {}
+}
