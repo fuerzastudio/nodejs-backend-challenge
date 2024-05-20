@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  runanalytics-backend:
+  nodejs-backend-challenge:
     build: .
     container_name: nodejs-backend-challenge
     image: nodejs-backend-challenge
@@ -16,7 +16,7 @@ services:
 
   postgres:
     image: bitnami/postgresql
-    container_name: postgres
+    container_name: dbpostgres
     ports:
       - 5432:5432
     environment:

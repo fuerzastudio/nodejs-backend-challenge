@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-backend-challenge",
+  "version": "1.0.0",
+  "description": "The project is a simple challenge to test your skills in building APIs using the Node.js framework.",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon ./src/app.mjs",
+    "start:prod": "node ./src/app.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "type": "module"
+}
