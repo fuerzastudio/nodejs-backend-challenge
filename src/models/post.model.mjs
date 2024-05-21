@@ -17,4 +17,14 @@ export class Posts {
   listPosts(page) {
     return this.postRepository.getAll(page);
   }
+
+  getPost(id) {
+    let post = this.postRepository.findById(id);
+    
+    if (!post) {
+      throw new Error('Post Not Found');
+    }
+
+    return post;
+  }
 }

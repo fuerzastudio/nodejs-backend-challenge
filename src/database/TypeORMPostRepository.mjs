@@ -19,4 +19,8 @@ export class TypeORMPostRepository extends IPostRepository {
       count: total
     }
   }
+
+  async findById(id) {
+    return await this.ormRepository.findOne(id);
+  }
 }

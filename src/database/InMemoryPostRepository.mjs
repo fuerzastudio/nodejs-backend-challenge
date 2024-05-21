@@ -13,4 +13,8 @@ export class InMemoryPostRepository extends IPostRepository {
     return this.data.slice((page - 1) * 10, page * 10)
   }
 
+  findById(id) {
+    return this.data.find(post => post.id === id);
+  }
+
 }
