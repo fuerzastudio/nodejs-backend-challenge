@@ -1,20 +1,24 @@
 import { IPostRepository } from './IPostRepository.mjs';
 
 export class InMemoryPostRepository extends IPostRepository {
-  data = [];
+  items = [];
 
   create(post) {
-    this.data.push(post);
+    this.items.push(post);
   };
 
   getAll(page) {
     page = page || 0;
 
-    return this.data.slice((page - 1) * 10, page * 10)
+    return this.items.slice((page - 1) * 10, page * 10)
   }
 
   findById(id) {
-    return this.data.find(post => post.id === id);
+    return this.items.find(post => post.id === id);
   }
 
+  update(id, data) {
+    const post = this.items.find(post => post.id === id);
+    Object.assign(post, data);
+  }
 }

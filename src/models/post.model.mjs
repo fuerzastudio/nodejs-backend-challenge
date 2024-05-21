@@ -27,4 +27,16 @@ export class Posts {
 
     return post;
   }
+
+  updatePost(id, postData) {
+    let post = this.postRepository.findById(id);
+
+    if (!post) {
+      throw new Error('Post Not Found');
+    }
+
+    this.postRepository.update(id, postData);
+
+    return postData;
+  }
 }

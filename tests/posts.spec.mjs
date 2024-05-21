@@ -8,7 +8,7 @@ describe('Posts', () => {
   let posts;
 
   beforeEach(() => {
-    postRepository.data = []
+    postRepository.items = []
     posts = new Posts(postRepository);
   });
 
@@ -68,6 +68,26 @@ describe('Posts', () => {
     
     // it('should not be able get a post by id', async () => {
     //   await expect(posts.getPost('1')).rejects.toThrowError('Post Not Found');
+    // });
+  });
+
+  describe('updatePost', () => {
+    it('should be able to update a post', async () => {
+      const post = await postFactory.create({}, postRepository);
+
+      const newPost = { title: 'New Title', body: 'New Body', tags: ['new', 'post'] };
+
+      let resp = await posts.updatePost(post.id, newPost);
+
+      expect(resp.title).toBe(newPost.title);
+      expect(resp.body).toBe(newPost.body);
+      expect(resp.tags).toBe(newPost.tags);
+    });
+    
+    // it('should not be able to update a post that not exists', async () => {
+    //   const newPost = { title: 'New Title', body: 'New Body', tags: ['new', 'post'] };
+
+    //   await expect(posts.updatePost('1', newPost)).rejects.toThrowError('Post Not Found');
     // });
   });
 });
