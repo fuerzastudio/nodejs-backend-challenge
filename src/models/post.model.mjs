@@ -17,8 +17,8 @@ export class Posts {
     return newPost;
   }
 
-  listPosts(page) {
-    return this.postRepository.getAll(page);
+  async listPosts(page) {
+    return this.postRepository.findAll(page);
   }
 
   getPost(id) {

@@ -7,7 +7,7 @@ export class InMemoryPostRepository extends IPostRepository {
     this.items.push(post);
   };
 
-  getAll(page) {
+  findAll(page) {
     page = page || 0;
 
     return this.items.slice((page - 1) * 10, page * 10)

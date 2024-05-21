@@ -12,3 +12,15 @@ export const createPost = async (req, res) => {
     res.status(500).json({ error: error.message })
   }
 };
+
+export const getAllPosts = async (req, res) => {
+  const userRepository = new TypeORMPostRepository()
+  const postModel = new Posts(userRepository)
+
+  try {
+    const posts = await postModel.listPosts(req.body.page)
+    res.status(200).json(posts)
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
+};

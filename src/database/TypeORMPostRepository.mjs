@@ -15,7 +15,7 @@ export class TypeORMPostRepository extends IPostRepository {
   async findAll(page) {
     page = page || 0;
 
-    const { result, total } = await this.ormRepository.findAndCount({
+    const [ result, total ] = await this.ormRepository.findAndCount({
       take: 10,
       skip: page,
     });

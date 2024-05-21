@@ -1,6 +1,6 @@
 export class IPostRepository {
   create(data) {}
-  getAll(page) {}
+  findAll(page) {}
   findById(id) {}
   update(id, data) {}
   delete(id) {}
