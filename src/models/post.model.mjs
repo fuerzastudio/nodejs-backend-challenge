@@ -13,4 +13,8 @@ export class Posts {
 
     return postData;
   }
+
+  listPosts(page) {
+    return this.postRepository.getAll(page);
+  }
 }

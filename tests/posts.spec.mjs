@@ -1,12 +1,14 @@
 import { Posts } from '../src/models/post.model.mjs';
 import { InMemoryPostRepository } from '../src/database/InMemoryPostRepository.mjs';
 import { validate } from 'uuid';
+import { postFactory } from './post.factory.mjs';
 
 describe('Posts', () => {
   let postRepository = new InMemoryPostRepository;
   let posts;
 
   beforeEach(() => {
+    postRepository.data = []
     posts = new Posts(postRepository);
   });
 
@@ -21,6 +23,37 @@ describe('Posts', () => {
       expect(post.title).toBe(testPost.title);
       expect(post.body).toBe(testPost.body);
       expect(post.tags).toBe(testPost.tags);
+    });
+  });
+
+  describe('getAllPosts', () => {
+    it('should get all first 10 posts', async () => {
+      for (let i = 0; i < 22; i++) {
+        await postFactory.create({}, postRepository);
+      }
+
+      let resp = posts.listPosts(1);
+      expect(resp.length).toBe(10);
+    });
+    
+    it('should get just two posts', async () => {
+      for (let i = 0; i < 2; i++) {
+        await postFactory.create({}, postRepository);
+      }
+
+      let resp = posts.listPosts(1);
+
+      expect(resp.length).toBe(2);
+    });
+    
+    it('should get just two posts (lasts)', async () => {
+      for (let i = 0; i < 22; i++) {
+        await postFactory.create({}, postRepository);
+      }
+
+      let resp = posts.listPosts(3);
+
+      expect(resp.length).toBe(2);
     });
   });
 });
