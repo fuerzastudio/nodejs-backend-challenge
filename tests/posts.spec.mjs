@@ -12,7 +12,7 @@ describe('Posts', () => {
     posts = new Posts(postRepository);
   });
 
-  describe('createPost', () => {
+  describe('Criação de Post', () => {
     it('should be able to create a new Post', () => {
       const testPost = { title: 'Test Post', body: 'This is a test post.', tags: ['post', 'test', 'new', 'jest'] };
       let post = posts.createPost(testPost);
@@ -26,7 +26,7 @@ describe('Posts', () => {
     });
   });
 
-  describe('getAllPosts', () => {
+  describe('Busca por todos os Post', () => {
     it('should be able to get all first 10 posts', async () => {
       for (let i = 0; i < 22; i++) {
         await postFactory.create({}, postRepository);
@@ -57,7 +57,7 @@ describe('Posts', () => {
     });
   });
 
-  describe('getPostById', () => {
+  describe('Busca de Post por id', () => {
     it('should be able to get a post by id', async () => {
       const post = await postFactory.create({}, postRepository);
 
@@ -71,7 +71,7 @@ describe('Posts', () => {
     // });
   });
 
-  describe('updatePost', () => {
+  describe('Atualizacao de Post', () => {
     it('should be able to update a post', async () => {
       const post = await postFactory.create({}, postRepository);
 
@@ -87,6 +87,20 @@ describe('Posts', () => {
     // it('should not be able to update a post that not exists', async () => {
     //   const newPost = { title: 'New Title', body: 'New Body', tags: ['new', 'post'] };
 
+    //   await expect(posts.updatePost('1', newPost)).rejects.toThrowError('Post Not Found');
+    // });
+  });
+
+  describe('Deletar Post', () => {
+    it('should be able to delete a post', async () => {
+      const post = await postFactory.create({}, postRepository);
+
+      let resp = await posts.deletePost(post.id);
+
+      expect(resp).toBe(post);
+    });
+    
+    // it('should not be able to delete a post', async () => {
     //   await expect(posts.updatePost('1', newPost)).rejects.toThrowError('Post Not Found');
     // });
   });

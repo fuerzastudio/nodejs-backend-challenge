@@ -3,4 +3,5 @@ export class IPostRepository {
   getAll(page) {}
   findById(id) {}
   update(id, data) {}
+  delete(id) {}
 }

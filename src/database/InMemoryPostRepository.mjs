@@ -21,4 +21,8 @@ export class InMemoryPostRepository extends IPostRepository {
     const post = this.items.find(post => post.id === id);
     Object.assign(post, data);
   }
+
+  delete(id) {
+    this.items = this.items.filter(post => post.id !== id);
+  }
 }

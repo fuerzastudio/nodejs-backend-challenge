@@ -19,7 +19,7 @@ export class Posts {
   }
 
   getPost(id) {
-    let post = this.postRepository.findById(id);
+    const post = this.postRepository.findById(id);
     
     if (!post) {
       throw new Error('Post Not Found');
@@ -29,7 +29,7 @@ export class Posts {
   }
 
   updatePost(id, postData) {
-    let post = this.postRepository.findById(id);
+    const post = this.postRepository.findById(id);
 
     if (!post) {
       throw new Error('Post Not Found');
@@ -38,5 +38,17 @@ export class Posts {
     this.postRepository.update(id, postData);
 
     return postData;
+  }
+
+  deletePost(id) {
+    const post = this.postRepository.findById(id);
+
+    if (!post) {
+      throw new Error('Post Not Found');
+    }
+
+    this.postRepository.delete(id);
+
+    return post;
   }
 }
