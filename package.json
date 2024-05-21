@@ -4,9 +4,9 @@
   "description": "The project is a simple challenge to test your skills in building APIs using the Node.js framework.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "nodemon ./src/app.mjs",
-    "start:prod": "node ./src/app.mjs"
+    "start:prod": "node ./src/app.mjs",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,10 @@
     "typeorm": "^0.3.20"
   },
   "devDependencies": {
+    "@babel/core": "^7.24.5",
+    "@babel/node": "^7.23.9",
+    "@babel/preset-env": "^7.24.5",
+    "jest": "^29.7.0",
     "nodemon": "^3.1.0"
   },
   "type": "module"

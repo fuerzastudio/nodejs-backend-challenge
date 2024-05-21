@@ -1,3 +1,3 @@
-class IPostRepository {
+export class IPostRepository {
   create(data) {}
 }

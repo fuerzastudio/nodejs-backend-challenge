@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto'
 
-class Posts {
+export class Posts {
   
   constructor(postRepository) {
     this.postRepository = postRepository;
@@ -9,6 +9,8 @@ class Posts {
   createPost(postData) {
     postData.id = randomUUID();
 
-    return this.postRepository.create(postData);
+    this.postRepository.create(postData)
+
+    return postData;
   }
 }
