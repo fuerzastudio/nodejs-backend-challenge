@@ -9,7 +9,7 @@ const dataSourceConfig = new DataSource({
   password: 'postgres',
   database: 'postgres',
   entities: [postSchema],
-  synchronize: true, // Not recommend, but its a test so we keep
+  // synchronize: true, // Not recommend, but its a test so we keep
 });
 
 

@@ -21,8 +21,8 @@ export class Posts {
     return this.postRepository.findAll(page);
   }
 
-  getPost(id) {
-    const post = this.postRepository.findById(id);
+  async getPost(id) {
+    const post = await this.postRepository.findById(id);
     
     if (!post) {
       throw new Error('Post Not Found');
