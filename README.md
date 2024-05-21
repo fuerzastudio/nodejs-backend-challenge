@@ -34,11 +34,11 @@ The project is a simple challenge to test your skills in building APIs using the
 ### Requirements
 
 - [ ] All API responses must be in JSON format.
-- [ ] Add pagination on the API for the listing of the posts
+- [X] Add pagination on the API for the listing of the posts
 - [ ] Provide the unit testing for all routes using Mocha and Chai or your preferred testing framework.
 - [ ] Provide documentation for all routes, we preferer using Swagger API, but you can using README for documentation.
 - [ ] Provide a README file with usage instructions (how to the runs, considerations, etc...).
-- [ ] Use naming written as camelCase by convention.
+- [X] Use naming written as camelCase by convention.
 
 #### - **The folders structures of the project should be following the example below.**
 
@@ -71,8 +71,8 @@ The project is a simple challenge to test your skills in building APIs using the
 
 ### Data Persistence
 
-- [ ] You will need to persist the data in some way, maybe in memory.
-- [ ] You don't need to use any external data persistence (database, cache, etc.), and the easier it is for us to run it, is better.
+- [X] You will need to persist the data in some way, maybe in memory.
+- [X] You don't need to use any external data persistence (database, cache, etc.), and the easier it is for us to run it, is better.
 
 ### Evaluation
 
@@ -88,5 +88,5 @@ The project is a simple challenge to test your skills in building APIs using the
 
 - [ ] Authenticated the routes using JWT
 - [ ] Process and validate the data that the API receives before creating the post.
-- [ ] Using Postgres for storage data
+- [X] Using Postgres for storage data
 - [ ] Using Swagger API documentation
