@@ -1,9 +1,8 @@
 import { Router } from 'express';
+import { createPost } from '../../controller/posts.mjs';
 
 const router = Router()
 
-router.get('/', (req, res) => {
-    res.send('Hello World from Posts!')
-})
+router.post('/api/posts', createPost);
 
 export default router;

@@ -1,13 +1,19 @@
-import { TypeORMPostRepository } from 'typeorm';
-
+import { IPostRepository } from "./IPostRepository.mjs";
+import postSchema from './entitities/postEntity.mjs';
+import dataSourceConfig from '../config/databaseConfig.mjs';
 export class TypeORMPostRepository extends IPostRepository {
+
+  constructor() {
+    super();
+    this.ormRepository = dataSourceConfig.getRepository(postSchema)
+  }
 
   async create(post) {
     return await this.ormRepository.save(post);
   }
 
   async findAll(page) {
-    const page = query.page || 0;
+    page = page || 0;
 
     const { result, total } = await this.ormRepository.findAndCount({
       take: 10,

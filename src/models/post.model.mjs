@@ -2,16 +2,19 @@ import { randomUUID } from 'node:crypto'
 
 export class Posts {
   
-  constructor(postRepository) {
-    this.postRepository = postRepository;
+  constructor(IPostRepository) {
+    this.postRepository = IPostRepository;
   }
   
-  createPost(postData) {
-    postData.id = randomUUID();
+  async createPost(postData) {
+    const newPost = {
+      id: randomUUID(),
+      ...postData,
+    };
 
-    this.postRepository.create(postData)
+    await this.postRepository.create(newPost);
 
-    return postData;
+    return newPost;
   }
 
   listPosts(page) {

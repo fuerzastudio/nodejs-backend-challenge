@@ -3,6 +3,7 @@ import router from './routes/api/index.mjs';
 import dataSourceConfig from './config/databaseConfig.mjs';
 
 const app = express();
+app.use(express.json());
 app.use(router)
 const PORT = process.env.PORT || 3000;
 
