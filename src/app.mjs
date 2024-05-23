@@ -7,7 +7,7 @@ import swaggerFile from './utils/swagger-output.json' assert { type: "json" };
 const app = express();
 app.use(express.json());
 app.use(router)
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerFile))
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 const PORT = process.env.PORT || 3000;
 
 dataSourceConfig.initialize().then(() => console.log('Connected to DB succesfully!'));
