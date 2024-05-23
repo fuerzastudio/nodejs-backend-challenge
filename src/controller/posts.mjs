@@ -2,6 +2,40 @@ import { Posts } from '../models/post.model.mjs'
 import { TypeORMPostRepository } from '../utils/database/TypeORMPostRepository.mjs'
 
 export const createPost = async (req, res) => {
+  /*  
+    #swagger.requestBody = {
+      required: true,
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/InputPostRequest"
+          }  
+        }
+      }
+    }
+
+    #swagger.responses[201] = {
+      description: "Post created",
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/PostResponse"
+          }
+        }
+      }
+    }
+
+    #swagger.responses[500] = {
+      description: "Internal server error",
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/PostResponseError"
+          }
+        }
+      }
+    }
+  */
   const userRepository = new TypeORMPostRepository()
   const postModel = new Posts(userRepository)
 
@@ -14,6 +48,39 @@ export const createPost = async (req, res) => {
 };
 
 export const getAllPosts = async (req, res) => {
+  /*
+    #swagger.requestBody = {
+      required: true,
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/GetPostsListRequest"
+          }  
+        }
+      }
+    }
+    #swagger.responses[200] = {
+      description: "Posts list",
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/PostResponseList"
+          }
+        }
+      }
+    }
+
+    #swagger.responses[500] = {
+      description: "Internal server error",
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/PostResponseError"
+          }
+        }
+      }
+    }
+  */
   const userRepository = new TypeORMPostRepository()
   const postModel = new Posts(userRepository)
 
@@ -26,9 +93,34 @@ export const getAllPosts = async (req, res) => {
 };
 
 export const getPost = async (req, res) => {
+  /*
+    #swagger.responses[200] = {
+      description: "Post Data",
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/PostResponse"
+          }
+        }
+      }
+    }
+    
+    #swagger.responses[500] = {
+      description: "Internal server error",
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/PostResponseError"
+          }
+        }
+      }
+    }
+  */
+
   const userRepository = new TypeORMPostRepository()
   const postModel = new Posts(userRepository)
 
+  
   try {
     const post = await postModel.getPost(req.params.id)
     res.status(200).json(post)
@@ -38,6 +130,40 @@ export const getPost = async (req, res) => {
 };
 
 export const updatePost = async (req, res) => {
+  /*  
+    #swagger.requestBody = {
+      required: true,
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/InputPostRequest"
+          }  
+        }
+      }
+    }
+
+    #swagger.responses[200] = {
+      description: "Post Updated",
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/PostResponse"
+          }
+        }
+      }
+    }
+
+    #swagger.responses[500] = {
+      description: "Internal server error",
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/PostResponseError"
+          }
+        }
+      }
+    }
+  */
   const userRepository = new TypeORMPostRepository()
   const postModel = new Posts(userRepository)
 
@@ -50,6 +176,29 @@ export const updatePost = async (req, res) => {
 };
 
 export const deletePost = async (req, res) => {
+  /*
+    #swagger.responses[200] = {
+        description: "Post Deleted",
+        content: {
+          "application/json": {
+            schema: {
+              $ref: "#/components/schemas/PostResponse"
+            }
+          }
+        }
+      }
+
+      #swagger.responses[500] = {
+        description: "Internal server error",
+        content: {
+          "application/json": {
+            schema: {
+              $ref: "#/components/schemas/PostResponseError"
+            }
+          }
+        }
+      }
+  */
   const userRepository = new TypeORMPostRepository()
   const postModel = new Posts(userRepository)
 

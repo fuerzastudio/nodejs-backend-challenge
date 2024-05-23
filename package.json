@@ -7,7 +7,7 @@
     "start:dev": "nodemon ./src/app.mjs",
     "start:prod": "node ./src/app.mjs",
     "test": "jest",
-    "swagger": "node ./src/utils/swagger.mjs"
+    "swagger": "node ./src/utils/swagger/swagger.mjs"
   },
   "keywords": [],
   "author": "",
