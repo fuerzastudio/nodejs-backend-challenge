@@ -6,7 +6,8 @@
   "scripts": {
     "start:dev": "nodemon ./src/app.mjs",
     "start:prod": "node ./src/app.mjs",
-    "test": "jest"
+    "test": "jest",
+    "swagger": "node ./src/utils/swagger.mjs"
   },
   "keywords": [],
   "author": "",
@@ -22,7 +23,9 @@
     "@babel/preset-env": "^7.24.5",
     "@faker-js/faker": "^8.4.1",
     "jest": "^29.7.0",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.0"
   },
   "type": "module"
 }
