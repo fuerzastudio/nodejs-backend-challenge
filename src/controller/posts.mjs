@@ -1,5 +1,5 @@
 import { Posts } from '../models/post.model.mjs'
-import { TypeORMPostRepository } from '../database/TypeORMPostRepository.mjs'
+import { TypeORMPostRepository } from '../utils/database/TypeORMPostRepository.mjs'
 
 export const createPost = async (req, res) => {
   const userRepository = new TypeORMPostRepository()

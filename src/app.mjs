@@ -1,8 +1,8 @@
 import express from 'express';
 import router from './routes/api/index.mjs';
-import dataSourceConfig from './config/databaseConfig.mjs';
+import dataSourceConfig from './utils/config/databaseConfig.mjs';
 import swaggerUi from 'swagger-ui-express';
-import swaggerFile from './utils/swagger-output.json' assert { type: "json" };
+import swaggerFile from './utils/swagger/swagger-output.json' assert { type: "json" };
 
 const app = express();
 app.use(express.json());
