@@ -4,9 +4,9 @@ The project is a simple challenge to test your skills in building APIs using the
 
 ### Submission
 
-- [ ] Read the description, requirements, and the others instructions
-- [ ] Fork the repository at [https://github.com/fuerzastudio/backend-challenge](https://github.com/fuerzastudio/backend-challenge)
-- [ ] Submit your challenge as a pull request
+- [X] Read the description, requirements, and the others instructions
+- [X] Fork the repository at [https://github.com/fuerzastudio/backend-challenge](https://github.com/fuerzastudio/backend-challenge)
+- [X] Submit your challenge as a pull request
 
 ### What to do
 
@@ -36,7 +36,7 @@ The project is a simple challenge to test your skills in building APIs using the
 - [X] All API responses must be in JSON format.
 - [X] Add pagination on the API for the listing of the posts
 - [X] Provide the unit testing for all routes using Mocha and Chai or your preferred testing framework.
-- [ ] Provide documentation for all routes, we preferer using Swagger API, but you can using README for documentation.
+- [X] Provide documentation for all routes, we preferer using Swagger API, but you can using README for documentation.
 - [ ] Provide a README file with usage instructions (how to the runs, considerations, etc...).
 - [X] Use naming written as camelCase by convention.
 
@@ -87,6 +87,6 @@ The project is a simple challenge to test your skills in building APIs using the
 ### Bonus Level Up
 
 - [ ] Authenticated the routes using JWT
-- [ ] Process and validate the data that the API receives before creating the post.
+- [X] Process and validate the data that the API receives before creating the post.
 - [X] Using Postgres for storage data
-- [ ] Using Swagger API documentation
+- [X] Using Swagger API documentation
