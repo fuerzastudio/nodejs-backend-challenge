@@ -10,7 +10,12 @@ export class InMemoryPostRepository extends IPostRepository {
   findAll(page) {
     page = page || 0;
 
-    return this.items.slice((page - 1) * 10, page * 10)
+    let data = this.items.slice((page - 1) * 10, page * 10);
+
+    return {
+      data,
+      total: this.items.length
+    };
   }
 
   findById(id) {

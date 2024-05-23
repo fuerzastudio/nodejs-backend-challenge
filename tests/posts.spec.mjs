@@ -13,9 +13,9 @@ describe('Posts', () => {
   });
 
   describe('Criação de Post', () => {
-    it('should be able to create a new Post', () => {
+    it('should be able to create a new Post', async () => {
       const testPost = { title: 'Test Post', body: 'This is a test post.', tags: ['post', 'test', 'new', 'jest'] };
-      let post = posts.createPost(testPost);
+      let post = await posts.createPost(testPost);
 
       const isValidId = validate(post.id);
 
@@ -32,8 +32,8 @@ describe('Posts', () => {
         await postFactory.create({}, postRepository);
       }
 
-      let resp = posts.listPosts(1);
-      expect(resp.length).toBe(10);
+      let resp = await posts.listPosts(1);
+      expect(resp.data.length).toBe(10);
     });
     
     it('should be able to get just two posts', async () => {
@@ -41,9 +41,9 @@ describe('Posts', () => {
         await postFactory.create({}, postRepository);
       }
 
-      let resp = posts.listPosts(1);
+      let resp = await posts.listPosts(1);
 
-      expect(resp.length).toBe(2);
+      expect(resp.data.length).toBe(2);
     });
     
     it('should be able to get just two posts (lasts)', async () => {
@@ -51,9 +51,9 @@ describe('Posts', () => {
         await postFactory.create({}, postRepository);
       }
 
-      let resp = posts.listPosts(3);
+      let resp = await posts.listPosts(3);
 
-      expect(resp.length).toBe(2);
+      expect(resp.data.length).toBe(2);
     });
   });
 
