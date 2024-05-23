@@ -31,7 +31,7 @@ export class TypeORMPostRepository extends IPostRepository {
   }
 
   async update(id, data) {
-    return await this.ormRepository.update({id, data});
+    return await this.ormRepository.update(id, data);
   }
 
   async delete(id) {

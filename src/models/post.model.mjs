@@ -31,7 +31,7 @@ export class Posts {
     return post;
   }
 
-  updatePost(id, postData) {
+  async updatePost(id, postData) {
     const post = this.postRepository.findById(id);
 
     if (!post) {
@@ -43,7 +43,7 @@ export class Posts {
     return postData;
   }
 
-  deletePost(id) {
+  async deletePost(id) {
     const post = this.postRepository.findById(id);
 
     if (!post) {
