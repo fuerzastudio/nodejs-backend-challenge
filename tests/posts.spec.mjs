@@ -1,5 +1,5 @@
 import { Posts } from '../src/models/post.model.mjs';
-import { InMemoryPostRepository } from '../src/database/in_memory/InMemoryPostRepository.mjs';
+import { InMemoryPostRepository } from '../src/utils/database/in_memory/InMemoryPostRepository.mjs';
 import { validate } from 'uuid';
 import { postFactory } from './post.factory.mjs';
 
@@ -65,10 +65,6 @@ describe('Posts', () => {
 
       expect(resp.id).toBe(post.id);
     });
-    
-    // it('should not be able get a post by id', async () => {
-    //   await expect(posts.getPost('1')).rejects.toThrowError('Post Not Found');
-    // });
   });
 
   describe('Atualizacao de Post', () => {
@@ -83,12 +79,6 @@ describe('Posts', () => {
       expect(resp.body).toBe(newPost.body);
       expect(resp.tags).toBe(newPost.tags);
     });
-    
-    // it('should not be able to update a post that not exists', async () => {
-    //   const newPost = { title: 'New Title', body: 'New Body', tags: ['new', 'post'] };
-
-    //   await expect(posts.updatePost('1', newPost)).rejects.toThrowError('Post Not Found');
-    // });
   });
 
   describe('Deletar Post', () => {
@@ -99,9 +89,5 @@ describe('Posts', () => {
 
       expect(resp).toBe(post);
     });
-    
-    // it('should not be able to delete a post', async () => {
-    //   await expect(posts.updatePost('1', newPost)).rejects.toThrowError('Post Not Found');
-    // });
   });
 });
