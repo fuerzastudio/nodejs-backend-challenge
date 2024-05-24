@@ -13,6 +13,9 @@
   "paths": {
     "/api/posts": {
       "post": {
+        "tags": [
+          "Posts"
+        ],
         "description": "",
         "responses": {
           "201": {
@@ -30,7 +33,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PostResponseError"
+                  "$ref": "#/components/schemas/ResponseError"
                 }
               }
             }
@@ -48,6 +51,9 @@
         }
       },
       "get": {
+        "tags": [
+          "Posts"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -65,7 +71,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PostResponseError"
+                  "$ref": "#/components/schemas/ResponseError"
                 }
               }
             }
@@ -85,6 +91,9 @@
     },
     "/api/posts/{id}": {
       "get": {
+        "tags": [
+          "Posts"
+        ],
         "description": "",
         "parameters": [
           {
@@ -112,7 +121,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PostResponseError"
+                  "$ref": "#/components/schemas/ResponseError"
                 }
               }
             }
@@ -120,6 +129,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Posts"
+        ],
         "description": "",
         "parameters": [
           {
@@ -147,7 +159,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PostResponseError"
+                  "$ref": "#/components/schemas/ResponseError"
                 }
               }
             }
@@ -165,6 +177,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Posts"
+        ],
         "description": "",
         "parameters": [
           {
@@ -192,8 +207,134 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/ResponseError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "User created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InputUserRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/{id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User Data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/login": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "User created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
                   "$ref": "#/components/schemas/PostResponseError"
                 }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InputLoginUserRequest"
               }
             }
           }
@@ -318,7 +459,7 @@
           }
         }
       },
-      "PostResponseError": {
+      "ResponseError": {
         "type": "object",
         "properties": {
           "message": {
@@ -328,6 +469,67 @@
         },
         "required": [
           "message"
+        ]
+      },
+      "InputUserRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Jhon Doe"
+          },
+          "email": {
+            "type": "string",
+            "example": "jhondoe@test.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "12345678"
+          }
+        },
+        "required": [
+          "name",
+          "email",
+          "password"
+        ]
+      },
+      "InputUserLoginRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Jhon Doe"
+          },
+          "password": {
+            "type": "string",
+            "example": "12345678"
+          }
+        },
+        "required": [
+          "name",
+          "password"
+        ]
+      },
+      "UserResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "Jhon Doe"
+          },
+          "email": {
+            "type": "string",
+            "example": "jhondoe@test.com"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "email"
         ]
       }
     }

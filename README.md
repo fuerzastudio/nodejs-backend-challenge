@@ -26,3 +26,4 @@
 #### 4. Routes
 
 - Before use the app, take a look on swagger at: `localhost:3000/doc`
+- All `Posts` routes need authentication, for this use the `User Create` and `User Login` routes

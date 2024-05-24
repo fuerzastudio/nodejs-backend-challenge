@@ -38,14 +38,32 @@ const doc = {
         ],
         "count": 134
       },
-      PostResponseError: {
+      ResponseError: {
         $message: 'Error message'
+      },
+      InputUserRequest: {
+        $name: 'Jhon Doe',
+        $email: 'jhondoe@test.com',
+        $password: '12345678'
+      },
+      InputUserLoginRequest: {
+        $name: 'Jhon Doe',
+        $password: '12345678'
+      },
+      InputUserLoginRequest: {
+        $name: 'Jhon Doe',
+        $password: '12345678'
+      },
+      UserResponse: {
+        $id: 1,
+        $name: 'Jhon Doe',
+        $email: 'jhondoe@test.com'
       }
     }
   }            
 };
 
 const outputFile = './swagger-output.json';
-const routes = ['../../routes/api/index.mjs'];
+const routes = ['../../routes/api/posts.mjs', '../../routes/api/users.mjs'];
 
 swaggerAutogen({openapi: '3.0.0'})(outputFile, routes, doc);

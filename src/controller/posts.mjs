@@ -3,6 +3,8 @@ import { TypeORMPostRepository } from '../utils/database/typeorm/TypeORMPostRepo
 
 export const createPost = async (req, res) => {
   /*  
+    #swagger.tags = ['Posts']
+
     #swagger.requestBody = {
       required: true,
       content: {
@@ -30,7 +32,7 @@ export const createPost = async (req, res) => {
       content: {
         "application/json": {
           schema: {
-            $ref: "#/components/schemas/PostResponseError"
+            $ref: "#/components/schemas/ResponseError"
           }
         }
       }
@@ -49,6 +51,8 @@ export const createPost = async (req, res) => {
 
 export const getAllPosts = async (req, res) => {
   /*
+    #swagger.tags = ['Posts']
+
     #swagger.requestBody = {
       required: true,
       content: {
@@ -75,7 +79,7 @@ export const getAllPosts = async (req, res) => {
       content: {
         "application/json": {
           schema: {
-            $ref: "#/components/schemas/PostResponseError"
+            $ref: "#/components/schemas/ResponseError"
           }
         }
       }
@@ -94,6 +98,8 @@ export const getAllPosts = async (req, res) => {
 
 export const getPost = async (req, res) => {
   /*
+    #swagger.tags = ['Posts']
+
     #swagger.responses[200] = {
       description: "Post Data",
       content: {
@@ -110,7 +116,7 @@ export const getPost = async (req, res) => {
       content: {
         "application/json": {
           schema: {
-            $ref: "#/components/schemas/PostResponseError"
+            $ref: "#/components/schemas/ResponseError"
           }
         }
       }
@@ -131,6 +137,8 @@ export const getPost = async (req, res) => {
 
 export const updatePost = async (req, res) => {
   /*  
+    #swagger.tags = ['Posts']
+
     #swagger.requestBody = {
       required: true,
       content: {
@@ -158,7 +166,7 @@ export const updatePost = async (req, res) => {
       content: {
         "application/json": {
           schema: {
-            $ref: "#/components/schemas/PostResponseError"
+            $ref: "#/components/schemas/ResponseError"
           }
         }
       }
@@ -177,6 +185,8 @@ export const updatePost = async (req, res) => {
 
 export const deletePost = async (req, res) => {
   /*
+    #swagger.tags = ['Posts']
+
     #swagger.responses[200] = {
         description: "Post Deleted",
         content: {
@@ -193,7 +203,7 @@ export const deletePost = async (req, res) => {
         content: {
           "application/json": {
             schema: {
-              $ref: "#/components/schemas/PostResponseError"
+              $ref: "#/components/schemas/ResponseError"
             }
           }
         }

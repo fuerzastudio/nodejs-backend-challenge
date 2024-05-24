@@ -3,6 +3,43 @@ import { TypeORMPostRepository } from '../utils/database/typeorm/TypeORMUserRepo
 import jwt from 'jsonwebtoken'
 
 export const createUser = async (req, res) => {
+  /*  
+    #swagger.tags = ['Users']
+
+    #swagger.requestBody = {
+      required: true,
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/InputUserRequest"
+          }  
+        }
+      }
+    }
+
+    #swagger.responses[201] = {
+      description: "User created",
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/UserResponse"
+          }
+        }
+      }
+    }
+
+    #swagger.responses[500] = {
+      description: "Internal server error",
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/ResponseError"
+          }
+        }
+      }
+    }
+  */
+
   const userRepository = new TypeORMPostRepository()
   const userModel = new Users(userRepository)
 
@@ -15,6 +52,30 @@ export const createUser = async (req, res) => {
 }
 
 export const getUser = async (req, res) => {
+  /*
+    #swagger.tags = ['Users']
+    #swagger.responses[200] = {
+      description: "User Data",
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/UserResponse"
+          }
+        }
+      }
+    }
+    
+    #swagger.responses[500] = {
+      description: "Internal server error",
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/ResponseError"
+          }
+        }
+      }
+    }
+  */
   const userRepository = new TypeORMPostRepository()
   const userModel = new Users(userRepository)
 
@@ -27,6 +88,43 @@ export const getUser = async (req, res) => {
 }
 
 export const loginUser = async (req, res) => {
+  /*  
+    #swagger.tags = ['Users']
+
+    #swagger.requestBody = {
+      required: true,
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/InputLoginUserRequest"
+          }  
+        }
+      }
+    }
+
+    #swagger.responses[201] = {
+      description: "User created",
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/UserResponse"
+          }
+        }
+      }
+    }
+
+    #swagger.responses[500] = {
+      description: "Internal server error",
+      content: {
+        "application/json": {
+          schema: {
+            $ref: "#/components/schemas/PostResponseError"
+          }
+        }
+      }
+    }
+  */
+
   const userRepository = new TypeORMPostRepository()
   const userModel = new Users(userRepository)
 
