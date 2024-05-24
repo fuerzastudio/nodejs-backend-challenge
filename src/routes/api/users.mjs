@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { body } from 'express-validator';
-import { createUser, getUser } from '../../controller/users.mjs';
+import { createUser, getUser, loginUser } from '../../controller/users.mjs';
 
 const router = Router()
 
@@ -14,5 +14,6 @@ router.post(
   createUser
 );
 router.get('/api/users/:id', getUser);
+router.post('/api/users/login', loginUser);
 
 export default router;

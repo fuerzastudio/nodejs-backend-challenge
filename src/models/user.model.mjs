@@ -1,4 +1,4 @@
-import { compare, hash } from 'bcrypt';
+import bcrypt from 'bcrypt';
 import { randomUUID } from 'node:crypto'
 
 export class Users {
@@ -20,7 +20,7 @@ export class Users {
       id: randomUUID(),
       name,
       email,
-      password: await hash(password, 10),
+      password: await bcrypt.hash(password, 10),
     };
 
     await this.userRepository.create(newUser);
@@ -53,7 +53,7 @@ export class Users {
       throw new Error('User not found');
     }
 
-    const isPasswordValid = await compare(password, user.password);
+    const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
       throw new Error('Invalid password');
