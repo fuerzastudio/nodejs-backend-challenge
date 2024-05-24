@@ -20,12 +20,12 @@ export class Users {
       id: randomUUID(),
       name,
       email,
-      password: hash(password),
+      password: await hash(password, 10),
     };
 
     await this.userRepository.create(newUser);
 
-    return newPost;
+    return newUser;
   }
 
   async getUser(id) {

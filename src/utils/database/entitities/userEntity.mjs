@@ -11,11 +11,10 @@ const userSchema = new EntitySchema({
       type: 'varchar',
     },
     email: {
-      type: 'text',
+      type: 'varchar',
     },
     password: {
       type: 'varchar',
-      array: true
     }
   },
 });

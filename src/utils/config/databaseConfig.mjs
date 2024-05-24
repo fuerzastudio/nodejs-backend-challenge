@@ -13,7 +13,7 @@ const dataSourceConfig = new DataSource({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
   entities: [postSchema, userSchema],
-  synchronize: true, // Not recommend, but its a test so we keep
+  // synchronize: true, // Not recommend, but its a test so we keep
 });
 
 
