@@ -1,5 +1,5 @@
 import { Posts } from '../models/post.model.mjs'
-import { TypeORMPostRepository } from '../utils/database/TypeORMPostRepository.mjs'
+import { TypeORMPostRepository } from '../utils/database/typeorm/TypeORMPostRepository.mjs'
 
 export const createPost = async (req, res) => {
   /*  
@@ -36,8 +36,8 @@ export const createPost = async (req, res) => {
       }
     }
   */
-  const userRepository = new TypeORMPostRepository()
-  const postModel = new Posts(userRepository)
+  const postRepository = new TypeORMPostRepository()
+  const postModel = new Posts(postRepository)
 
   try {
     const post = await postModel.createPost(req.body)
@@ -81,8 +81,8 @@ export const getAllPosts = async (req, res) => {
       }
     }
   */
-  const userRepository = new TypeORMPostRepository()
-  const postModel = new Posts(userRepository)
+  const postRepository = new TypeORMPostRepository()
+  const postModel = new Posts(postRepository)
 
   try {
     const posts = await postModel.listPosts(req.body.page)
@@ -117,8 +117,8 @@ export const getPost = async (req, res) => {
     }
   */
 
-  const userRepository = new TypeORMPostRepository()
-  const postModel = new Posts(userRepository)
+  const postRepository = new TypeORMPostRepository()
+  const postModel = new Posts(postRepository)
 
   
   try {
@@ -164,8 +164,8 @@ export const updatePost = async (req, res) => {
       }
     }
   */
-  const userRepository = new TypeORMPostRepository()
-  const postModel = new Posts(userRepository)
+  const postRepository = new TypeORMPostRepository()
+  const postModel = new Posts(postRepository)
 
   try {
     const post = await postModel.updatePost(req.params.id, req.body)
@@ -199,8 +199,8 @@ export const deletePost = async (req, res) => {
         }
       }
   */
-  const userRepository = new TypeORMPostRepository()
-  const postModel = new Posts(userRepository)
+  const postRepository = new TypeORMPostRepository()
+  const postModel = new Posts(postRepository)
 
   try {
     const post = await postModel.deletePost(req.params.id)

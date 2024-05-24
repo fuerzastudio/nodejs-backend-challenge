@@ -1,6 +1,6 @@
-import { IPostRepository } from "./IPostRepository.mjs";
-import postSchema from './entitities/postEntity.mjs';
-import dataSourceConfig from '../config/databaseConfig.mjs';
+import { IPostRepository } from "../IPostRepository.mjs";
+import postSchema from '../entitities/postEntity.mjs';
+import dataSourceConfig from '../../config/databaseConfig.mjs';
 export class TypeORMPostRepository extends IPostRepository {
 
   constructor() {

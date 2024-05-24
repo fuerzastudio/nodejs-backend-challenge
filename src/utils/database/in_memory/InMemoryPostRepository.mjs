@@ -1,4 +1,4 @@
-import { IPostRepository } from './IPostRepository.mjs';
+import { IPostRepository } from '../IPostRepository.mjs';
 
 export class InMemoryPostRepository extends IPostRepository {
   items = [];

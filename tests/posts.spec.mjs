@@ -1,5 +1,5 @@
 import { Posts } from '../src/models/post.model.mjs';
-import { InMemoryPostRepository } from '../src/database/InMemoryPostRepository.mjs';
+import { InMemoryPostRepository } from '../src/database/in_memory/InMemoryPostRepository.mjs';
 import { validate } from 'uuid';
 import { postFactory } from './post.factory.mjs';
 
