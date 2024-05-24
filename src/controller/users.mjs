@@ -24,3 +24,15 @@ export const getUser = async (req, res) => {
     res.status(500).json({ error: error.message })
   }
 }
+
+export const loginUser = async (req, res) => {
+  const userRepository = new TypeORMPostRepository()
+  const userModel = new Users(userRepository)
+
+  try {
+    const user = await userModel.login(req.body)
+    res.status(200).json(user)
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
+}

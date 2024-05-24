@@ -33,4 +33,18 @@ describe('Users', () => {
       expect(resp.id).toBe(user.id);
     });
   });
+  
+  describe('Login de Usuário', () => {
+    it('should be able to login a user', async () => {
+      const testUser = { name: 'User teste', email: 'teste@mail.com', password: '1234' };
+      let user = await users.createUser(testUser);
+
+      let resp = await users.login({
+        email: testUser.email, 
+        password: testUser.password
+      });
+
+      expect(resp.id).toBe(user.id);
+    });
+  });
 });

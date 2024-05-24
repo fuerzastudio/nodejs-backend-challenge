@@ -1,4 +1,4 @@
-import { hash } from 'bcrypt';
+import { compare, hash } from 'bcrypt';
 import { randomUUID } from 'node:crypto'
 
 export class Users {
@@ -25,7 +25,10 @@ export class Users {
 
     await this.userRepository.create(newUser);
 
-    return newUser;
+    return {
+      ...newUser,
+      password: undefined,
+    };
   }
 
   async getUser(id) {
@@ -35,6 +38,30 @@ export class Users {
       throw new Error('User not found');
     }
 
-    return user;
-  } 
+    return {
+      ...user,
+      password: undefined,
+    };
+  }
+
+  async login(userData) {
+    const { email, password } = userData;
+
+    const user = await this.userRepository.findByEmail(email);
+
+    if (!user) {
+      throw new Error('User not found');
+    }
+
+    const isPasswordValid = await compare(password, user.password);
+
+    if (!isPasswordValid) {
+      throw new Error('Invalid password');
+    }
+
+    return {
+      ...user,
+      password: undefined,
+    };
+  }
 }
