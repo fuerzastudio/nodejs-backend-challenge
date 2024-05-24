@@ -21,3 +21,8 @@
 #### 3. Run Docker Compose:
   ```bash
     docker compose up
+  ```
+
+#### 4. Routes
+
+- Before use the app, take a look on swagger at: `localhost:3000/doc`
