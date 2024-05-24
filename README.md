@@ -16,6 +16,7 @@
     DB_USERNAME=postgresUser
     DB_PASSWORD=postgresUserPasssword
     DB_DATABASE=postgresDatabase
+    JWT_SECRET=secret
   ```
 
 #### 3. Run Docker Compose:
